@@ -298,11 +298,6 @@ function exec_options(opts)
     # load ~/.julia/config/startup.jl file
     startup && load_julia_startup()
 
-    if repl || is_interactive
-        # load interactive-only libraries
-        eval(Main, :(using InteractiveUtils))
-    end
-
     # process cmds list
     for (cmd, arg) in cmds
         if cmd == 'e'
